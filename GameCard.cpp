@@ -16,14 +16,16 @@ GameCard::GameCard() {
     cardDescription = DEFAULT_DESCRIPTION;
     bandwidthCost = DEFAULT_BANDWIDTH_COST;
     imageLink = DEFAULT_IMAGE_LINK;
+    attackSurface = DEFAULT_ATTACK_SURFACE;
 }
 
 GameCard::GameCard(string newName, string newDescription,
-                   int newBandwidthCost, string newImageLink) {
+                   int newBandwidthCost, string newImageLink, AttackSurface newAttackSurface) {
                     cardName = newName;
                     cardDescription = newDescription;
                     bandwidthCost = newBandwidthCost;
                     imageLink = newImageLink;
+                    attackSurface = newAttackSurface;
                    }
 
 //GETTERS
@@ -35,6 +37,8 @@ string GameCard::getCardDescription() const { return cardDescription; }
 int GameCard::getBandwidthCost() const { return bandwidthCost; }
 
 string GameCard::getImageLink() const { return imageLink; }
+
+AttackSurface GameCard::getAttackSurface() const { return attackSurface; }
 
 //SETTERS
 
@@ -65,10 +69,13 @@ void GameCard::setImageLink(string newImageLink) {
     }
 }
 
+void GameCard::setAttackSurface(AttackSurface newAttackSurface) { attackSurface = newAttackSurface; }
+
 //OTHER METHODS
 void GameCard::display() const {
     cout << getCardName() << ": " << getCardDescription() << " Costs " << getBandwidthCost()
-         << " bandwidth. Image is stored at " << getImageLink() << endl; 
+         << " bandwidth. Image is stored at " << getImageLink() 
+         << "Attack surface is " << attackSurfaceNames[getAttackSurface()] << endl; 
 }
 
 string GameCard::toString() const {
@@ -76,6 +83,7 @@ string GameCard::toString() const {
     returnString += " | Description: " + getCardDescription();
     returnString += " | Bandwidth Cost: " + to_string(getBandwidthCost());
     returnString += " | Image Link: " + getImageLink();
+    returnString += " | Attack Surface: " + attackSurfaceNames[getAttackSurface()];
 
     return returnString;
 }

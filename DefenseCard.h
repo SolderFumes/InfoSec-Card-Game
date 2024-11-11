@@ -16,7 +16,7 @@ using namespace std;
 //named constants
 const int DEFAULT_CARD_HEALTH = 50;
 
-class DefenseCard : GameCard {
+class DefenseCard : public GameCard {
     public:
     //CONSTRUCTORS
     DefenseCard();
@@ -29,8 +29,8 @@ class DefenseCard : GameCard {
     void setCardHealth(int);
 
     //OTHER METHODS
-    virtual void display();
-    virtual string toString();
+    virtual void display() const override;
+    virtual string toString() const override;
 
     private:
     int cardHealth;

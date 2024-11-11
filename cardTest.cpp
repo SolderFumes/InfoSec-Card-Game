@@ -7,9 +7,9 @@
 #include <iomanip>
 #include <string>
 #include <cmath>
-#include "GameCard.h"
 #include "ExploitCard.h"
 #include "DefenseCard.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -170,6 +170,18 @@ int main() {
                      Network, 75);
     siem.display();
 
+    cout << endl << endl;
+
+
+    cout << "*** TESTING PLAYER CLASS ***" << endl;
+    vector<GameCard*> deck;
+    deck.push_back( new GameCard(defaultCard));
+    deck.push_back(new GameCard(completeCard));
+    deck.push_back(new ExploitCard(ssrf));
+    deck.push_back(new DefenseCard(siem));
+    Player p1(deck);
+
+    p1.display();
 
 
 

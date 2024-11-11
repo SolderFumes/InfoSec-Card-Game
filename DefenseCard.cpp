@@ -24,14 +24,14 @@ int DefenseCard::getCardHealth() const { return cardHealth; }
 void DefenseCard::setCardHealth(int newHealth) { cardHealth = newHealth; }
 
 //OTHER METHODS
-void DefenseCard::display() {
+void DefenseCard::display() const {
     GameCard::display();
     cout << " This card has " << cardHealth << " health.";
 }
 
-string DefenseCard::toString() {
+string DefenseCard::toString() const {
     string resultString = GameCard::toString();
-    resultString += " | Health: " + cardHealth;
+    resultString += " | Health: " + to_string(cardHealth);
 
     return resultString;
 }

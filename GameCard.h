@@ -9,10 +9,11 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <regex>
 
 using namespace std;
 
-const enum AttackSurface {SocialEngineering, DoS, Web, Network};
+enum AttackSurface {SocialEngineering, DoS, Web, Network};
 const string attackSurfaceNames[] {"Social Engineering", "DoS", "Web", "Network"};
 
 const string DEFAULT_NAME = "NoName";
@@ -43,8 +44,8 @@ class GameCard {
 
     //OTHER METHODS
     // void displayImage(); //will display card image in a new window (MAY NEED SEPERATE CLASS AND OPENCV SO I WILL DO THIS LATER ALONG WITH GUI)
-    void display() const;
-    string toString() const;
+    virtual void display() const;
+    virtual string toString() const;
 
     protected:
     string cardName;

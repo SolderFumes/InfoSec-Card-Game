@@ -4,20 +4,24 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <cmath>
 #include "GameCard.h"
+#include "ExploitCard.h"
+#include "DefenseCard.h"
 
 using namespace std;
 
 int main() {
     cout << boolalpha;
+    cout << fixed << setprecision(2);
     
     GameCard defaultCard;
     string completeCardImageLink = "https://bleepstatic.com/content/posts/2017/06/07/ETERNALBLUE.jpg";
-    GameCard completeCard("EternalBlue", "A famous exploit affecting almost all Windows Machines", 20, completeCardImageLink);
+    GameCard completeCard("EternalBlue", "A famous exploit affecting almost all Windows Machines", 20, completeCardImageLink, Network);
     string cardPtrImageLink = "https://myrasecurity.com/assets/79302/1673879028-bedrohungen_code_injection_de_en_transparent_desktop.png";
-    GameCard *cardPtr = new GameCard("SQL Injection", "The 3rd most dangerous Web Security Exploit", 10, cardPtrImageLink);
+    GameCard *cardPtr = new GameCard("SQL Injection", "The 3rd most dangerous Web Security Exploit", 10, cardPtrImageLink, Web);
 
     cout << "*** TESTING ACCESSOR METHODS :3 ***" << endl;
     //*** getCardName
@@ -136,7 +140,6 @@ int main() {
     }
     else {
         cout << "toString Test 1 Failed!" << endl;
-        cout << defaultCard.toString();
     }
 
     if (completeCard.toString() == "Name: EternalBlue | Description: A famous exploit affecting almost all Windows Machines | Bandwidth Cost: 20 | Image Link: https://bleepstatic.com/content/posts/2017/06/07/ETERNALBLUE.jpg") {
@@ -144,16 +147,28 @@ int main() {
     }
     else {
         cout << "toString Test 2 Failed!" << endl;
-        cout << completeCard.toString();
     }
 
     if (cardPtr->toString() == "Name: SQL Injection | Description: The 3rd most dangerous Web Security Exploit | Bandwidth Cost: 10 | Image Link: https://myrasecurity.com/assets/79302/1673879028-bedrohungen_code_injection_de_en_transparent_desktop.png") {
-        cout << "toString Test 3 Passed!" << endl;
     }
     else {
         cout << "toString Test 3 Failed!" << endl;
-        cout << cardPtr->toString();
     }
+
+    cout << "*** TESTING EXPLOITCARD ***" << endl;
+    ExploitCard ssrf("Server Side Request Forgery (SSRF)", 
+                     "An exploit in which the attacker convinces the server to perform malicious actions",
+                     10, "https://imperva.com/learn/wp-content/uploads/sites/13/2021/12/How-Server-SSRF-works.png",
+                     Web, 25, 90.0 );
+    ssrf.display();
+    cout << endl << endl;
+
+    cout << "*** TESTING DEFENSECARD ***" << endl;
+    DefenseCard siem("Security Information and Event Management (SIEM)",
+                     "A piece of software that gives a detailed live feed of events on a network",
+                     30, "https://www.coresecurity.com/sites/default/files/2023-07/how-does-a-siem-work-image.png",
+                     Network, 75);
+    siem.display();
 
 
 

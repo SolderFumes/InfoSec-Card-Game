@@ -14,9 +14,26 @@
 using namespace std;
 
 //named constants
+const int DEFAULT_CARD_HEALTH = 50;
 
 class DefenseCard : GameCard {
+    public:
+    //CONSTRUCTORS
+    DefenseCard();
+    DefenseCard(string, string, int, string, AttackSurface, int);
+
+    //GETTER
+    int getCardHealth() const;
     
+    //SETTER
+    void setCardHealth(int);
+
+    //OTHER METHODS
+    virtual void display();
+    virtual string toString();
+
+    private:
+    int cardHealth;
 };
 
 

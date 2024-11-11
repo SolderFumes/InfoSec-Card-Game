@@ -1,11 +1,7 @@
 //CS 112 Project 4, Infosec Card Game 
 //https://github.com/SolderFumes/InfoSec-Card-Game
 //Luka Schuller
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <regex>
+
 #include "GameCard.h"
 
 using namespace std;
@@ -73,9 +69,9 @@ void GameCard::setAttackSurface(AttackSurface newAttackSurface) { attackSurface 
 
 //OTHER METHODS
 void GameCard::display() const {
-    cout << getCardName() << ": " << getCardDescription() << " Costs " << getBandwidthCost()
+    cout << getCardName() << ": " << getCardDescription() << ". Costs " << getBandwidthCost()
          << " bandwidth. Image is stored at " << getImageLink() 
-         << "Attack surface is " << attackSurfaceNames[getAttackSurface()] << endl; 
+         << ". Attack surface is " << attackSurfaceNames[getAttackSurface()] << "."; 
 }
 
 string GameCard::toString() const {

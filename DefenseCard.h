@@ -9,7 +9,6 @@
 #include <string>
 #include <cmath>
 #include "GameCard.h"
-#include "ExploitCard.h"
 
 using namespace std;
 
@@ -27,6 +26,8 @@ class DefenseCard : public GameCard {
     
     //SETTER
     void setCardHealth(int);
+    int reduceCardHealth(int reduceBy); //return the difference between cardHealth
+    // and reduceby, therefore finding if theres any leftover damage :)
 
     //OTHER METHODS
     virtual void display() const override;

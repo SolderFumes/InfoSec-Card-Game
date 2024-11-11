@@ -35,12 +35,16 @@ class Player {
     //setters
     void setPlayerHP(int newHP);
     void setPlayerBandwidth(int newBandwidth);
+    void reducePlayerHP(int reduceBy);
+    void reducePlayerBandwidth(int reduceBy);
     void addCard(GameCard);
     void playCard(int index);
 
     //other methods
     void display();
     string toString();
+    bool hasDefense(); //returns true if there is a defensive card in cardsActive
+    DefenseCard* firstDefenseCard(); //returns a reference to the leftmost defensive card
 
 
     private:

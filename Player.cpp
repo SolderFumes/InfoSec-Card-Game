@@ -44,6 +44,10 @@ void Player::setPlayerHP(int newHP) { playerHP = newHP; }
 
 void Player::setPlayerBandwidth(int newBandwidth) { playerBandwidth = newBandwidth; } 
 
+void Player::reducePlayerHP(int reduceBy) { playerHP -= reduceBy; }
+
+void Player::reducePlayerBandwidth(int reduceBy) { playerBandwidth -= reduceBy; }
+
 void Player::addCard(GameCard cardToAdd) {
     //push a reference to a COPY of the card (everything is pointers for dynamic binding)
     cardList.push_back( new GameCard(cardToAdd) );
@@ -59,6 +63,8 @@ void Player::playCard(int index) {
     }
 }
 
+
+//OTHER METHODS
 void Player::display() {
     cout << "Player has " << playerHP << " HP and " << playerBandwidth << " bandwidth." << endl;
     cout << "Deck contains: ";
@@ -78,4 +84,24 @@ string Player::toString() {
     }
 
     return returnString;
+}
+
+bool Player::hasDefense() {
+    //loop through every card. If we find a defenseCard, return true. otherwise, return false.
+    for (int i = 0; i < cardsActive.size(); i++) {
+        //this line tries to cast the GameCard as a DefenseCard, if it fails, it returns a nullptr.
+        if (dynamic_cast<DefenseCard*>(cardsActive.at(i)) != nullptr) {
+            return true;
+        }
+    }
+    return false;
+}
+
+DefenseCard* Player::firstDefenseCard() {
+    for (int i = 0; i < cardsActive.size(); i++) {
+        if (dynamic_cast<DefenseCard*>(cardsActive.at(i)) != nullptr) {
+            return (DefenseCard*) (cardsActive.at(i));
+        }
+    }
+    return nullptr;
 }

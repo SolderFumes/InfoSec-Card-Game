@@ -23,6 +23,13 @@ int DefenseCard::getCardHealth() const { return cardHealth; }
 //SETTER
 void DefenseCard::setCardHealth(int newHealth) { cardHealth = newHealth; }
 
+int DefenseCard::reduceCardHealth(int reduceBy) {
+    int difference = cardHealth - reduceBy; //<-- returns a negative value if there
+    //is leftover damage.
+    cardHealth -= reduceBy;
+    return difference;
+}
+
 //OTHER METHODS
 void DefenseCard::display() const {
     GameCard::display();

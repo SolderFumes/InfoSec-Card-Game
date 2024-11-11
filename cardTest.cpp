@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int main() {
+void cardTest() {
     cout << boolalpha;
     cout << fixed << setprecision(2);
     
@@ -185,5 +185,5 @@ int main() {
 
 
 
-    return EXIT_SUCCESS;
+    return;
 }

@@ -31,14 +31,17 @@ class Player {
     int getPlayerBandwidth() const;
     vector<GameCard*>& getPlayerCardList();
     vector<GameCard*>& getPlayerCardsActive();
+    void printDeck() const;
 
     //setters
     void setPlayerHP(int newHP);
     void setPlayerBandwidth(int newBandwidth);
     void reducePlayerHP(int reduceBy);
     void reducePlayerBandwidth(int reduceBy);
+    
     void addCard(GameCard);
-    void playCard(int index);
+    void drawCard();
+    void playCard(int index, Player& target);
 
     //other methods
     void display();
@@ -52,6 +55,7 @@ class Player {
     int playerBandwidth; //mana
     vector<GameCard*> cardList;
     vector<GameCard*> cardsActive;
+    GameCard* cardPool[2];
 };
 
 

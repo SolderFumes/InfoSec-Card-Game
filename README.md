@@ -1,3 +1,3 @@
-An Information Security (Cybersecurity)-themed card game made in C++! May be GUI-based depending on my motivation :3 
+# This project has been moved to https://github.com/SolderFumes/InfoSec-Card-Game-GUI/.
 
-Trello: https://trello.com/b/90EQELfm/cybersec-card-game
+This Repository contains legacy code that may or may not be used for the final GUI version of the game.
